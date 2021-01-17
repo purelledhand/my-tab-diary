@@ -11,11 +11,15 @@ const useStyle = makeStyles({
   },
 });
 
-const WindowContent: React.FC = ({ children }) => {
+interface Props {
+  className?: string;
+}
+
+const WindowContent: React.FC<Props> = ({ className, children }) => {
   const classes = useStyle();
 
   return (
-    <Grid container item className={classes.Description}>
+    <Grid container item className={[classes.Description, className].join(' ')}>
       {children}
     </Grid>
   );

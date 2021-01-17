@@ -16,7 +16,7 @@ const WindowHeader: React.FC = ({ children }) => {
   const classes = useStyle();
 
   return (
-    <Grid item className={classes.Header}>
+    <Grid container item direction='row' justify='space-between' className={classes.Header}>
       {children}
     </Grid>
   );

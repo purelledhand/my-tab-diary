@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import { Button, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
+import Window from 'components/Window';
+import WindowContent from 'components/Window/WindowContent';
+import WindowHeader from 'components/Window/WindowHeader';
 import { Site } from 'utils/types';
 
 const useStyle = makeStyles({
@@ -13,20 +15,17 @@ const useStyle = makeStyles({
     color: '#ffffff',
     borderRadius: 8,
   },
-  Title: {
-    width: '100%',
-    backgroundColor: 'transparent',
+  ToggleButton: {
+    backgroundColor: '#c7c7c7e0',
+    width: 20,
     color: '#ffffff',
-    textTransform: 'capitalize',
     fontSize: 14,
-    marginBottom: 12,
-    padding: '0 8px',
-    height: 36,
-    borderRadius: 30,
-    '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.5)' },
+    border: 'none',
+    cursor: 'pointer',
+    padding: 0,
+    '&:focus': { outline: 0 },
   },
-  Description: {
-    fontSize: 12,
+  Content: {
     lineHeight: 1.5,
     '& ul, ol': { padding: 0 },
   },
@@ -44,11 +43,18 @@ const TopSitesList: React.FC = () => {
   const toggleShow = () => setShow((prev) => !prev);
 
   return (
-    <Grid container item direction='column' alignItems='flex-start' className={classes.Container}>
-      <Button onClick={toggleShow} className={classes.Title}>
-        Wish cache hit&nbsp;<b>for you.</b>
-      </Button>
-      <Grid container item direction='column' alignItems='flex-start' className={classes.Description}>
+    <Window>
+      <WindowHeader>
+        My top sites.
+        <button
+          onClick={toggleShow}
+          className={classes.ToggleButton}
+          type='button'
+        >
+          {show ? '-' : '+'}
+        </button>
+      </WindowHeader>
+      <WindowContent className={classes.Content}>
         <ul>
           {show && topSites.map(({ url, title }, index) => (
             <ol>
@@ -59,8 +65,8 @@ const TopSitesList: React.FC = () => {
             </ol>
           ))}
         </ul>
-      </Grid>
-    </Grid>
+      </WindowContent>
+    </Window>
   );
 };
 
