@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import ReactPlayer from 'react-player';
 
 import ExploreButton from 'components/ExploreButton';
 import Footer from 'components/Footer';
@@ -10,7 +9,6 @@ import Header from 'components/Header';
 import Logo from 'components/Logo';
 import MetadataBox from 'components/MetadataBox';
 import TopSitesList from 'components/TopSitesList';
-import { HOST_URL } from 'constants/env';
 import { windows } from 'constants/windows';
 
 const useStyle = makeStyles({
@@ -39,15 +37,6 @@ const Main: React.FC = () => {
 
   return (
     <>
-
-      <ReactPlayer
-        url={`${HOST_URL}/video/${windows[windowIndex].windowId}`}
-        playing
-        onEnded={changeWindow}
-        width='100vw'
-        height='100vh'
-        className={classes.Player}
-      />
       <Grid container wrap='nowrap' direction='column' justify='space-between' className={classes.Container}>
         <Header>
           <MetadataBox windowIndex={windowIndex} />
