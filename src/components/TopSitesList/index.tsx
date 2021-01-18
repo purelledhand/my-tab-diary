@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import Button from 'components/Button';
 import Window from 'components/Window';
 import WindowContent from 'components/Window/WindowContent';
 import WindowHeader from 'components/Window/WindowHeader';
@@ -46,13 +47,9 @@ const TopSitesList: React.FC = () => {
     <Window>
       <WindowHeader>
         My top sites.
-        <button
-          onClick={toggleShow}
-          className={classes.ToggleButton}
-          type='button'
-        >
+        <Button onClick={toggleShow}>
           {show ? '-' : '+'}
-        </button>
+        </Button>
       </WindowHeader>
       <WindowContent className={classes.Content}>
         <ul>
