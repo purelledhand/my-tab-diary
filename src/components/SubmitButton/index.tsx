@@ -20,18 +20,18 @@ export interface Props {
   className?: string;
 }
 
-const Button: React.FC<Props> = ({ onClick, className, children }) => {
+const SubmitButton: React.FC<Props> = ({ onClick, className, children }) => {
   const classes = useStyle();
 
   return (
     <button
       onClick={onClick}
       className={[classes.Button, className].join(' ')}
-      type='button'
+      type='submit'
     >
       {children}
     </button>
   );
 };
 
-export default Button;
+export default SubmitButton;

@@ -6,15 +6,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Logo from 'components/Logo';
+import SearchBar from 'components/SearchBar';
 import TodoWindow from 'components/ToDoWindow';
 import TopSitesList from 'components/TopSitesList';
 
 const useStyle = makeStyles({
-  Player: {
-    position: 'fixed',
-    top: 0,
-    zIndex: -1,
-  },
   Container: {
     padding: 24,
     width: '100vw',
@@ -38,6 +34,7 @@ const Main: React.FC = () => {
           <Logo />
           <TopSitesList />
         </Header>
+        <SearchBar />
         <Footer>
           <Grid item className={classes.Link}>
             <a href='https://window-swap.com/window' target='__blank'>window-swap.com</a>
